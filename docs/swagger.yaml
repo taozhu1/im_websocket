@@ -1,0 +1,118 @@
+definitions:
+  vo.AddUser:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  vo.UpdateUser:
+    properties:
+      id:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /user/deleteUser:
+    delete:
+      consumes:
+      - application/json
+      description: DeleteUser
+      parameters:
+      - description: 用户ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: code", "msg"}
+          schema:
+            type: string
+      summary: 删除用户
+      tags:
+      - user
+  /user/getUserList:
+    get:
+      responses:
+        "200":
+          description: code","message"}
+          schema:
+            type: string
+      summary: 所有用户
+      tags:
+      - user
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      description: UserLogin
+      parameters:
+      - description: 用户信息
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/vo.AddUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: code", "msg"}
+          schema:
+            type: string
+      summary: 用户登录
+      tags:
+      - user
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      description: UserRegister
+      parameters:
+      - description: 用户信息
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/vo.AddUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: code", "msg"}
+          schema:
+            type: string
+      summary: 用户注册
+      tags:
+      - user
+  /user/updateUser:
+    put:
+      consumes:
+      - application/json
+      description: UpdateUser
+      parameters:
+      - description: 用户信息
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/vo.UpdateUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: code", "msg"}
+          schema:
+            type: string
+      summary: 更新用户
+      tags:
+      - user
+swagger: "2.0"
