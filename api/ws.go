@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"im-websocket/model"
 	"im-websocket/service"
 	"net/http"
 )
@@ -14,10 +15,20 @@ var upGrade = websocket.Upgrader{
 	},
 }
 
+func GetWs(c *gin.Context) *websocket.Conn {
+	// 跨域请求
+	ws, err := upGrade.Upgrade(c.Writer, c.Request, nil)
+	if err != nil {
+		fmt.Println(err)
+		return nil
+	}
+	return ws
+}
+
 // WsHandler
-// @Summary ws消息
+// @Summary websocket消息
 // @Schemes
-// @Description WsHandler
+// @Description websocket消息
 // @Tags user
 // @Accept json
 // @Produce json
@@ -26,20 +37,29 @@ var upGrade = websocket.Upgrader{
 // @Router /user/login [post]
 func WsHandler(c *gin.Context) {
 	// 跨域请求
-	ws, err := upGrade.Upgrade(c.Writer, c.Request, nil)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	conn := GetWs(c)
 	// ws资源关闭
-	//defer func(ws *websocket.Conn) {
-	//	err = ws.Close()
-	//	if err != nil {
-	//		fmt.Println(err)
-	//		return
-	//	}
-	//}(ws)
+	defer func(ws *websocket.Conn) {
+		err := ws.Close()
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+	}(conn)
 
-	go service.WSWrite(ws, "test")
-	go service.WSRead(ws)
+	uid := c.Query("uid") // 自己的id
+	toUid := c.Query("toUid")
+
+	//// 创建一个用户实例
+	client := &model.Client{
+		FromId:   uid,
+		TargetId: toUid,
+		Socket:   conn,
+		Send:     make(chan []byte),
+	}
+	// 用户注册到用户管理上
+	model.Manager.Register <- client
+
+	go service.WSWrite(conn, "test")
+	go service.WSRead(conn)
 }

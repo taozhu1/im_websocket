@@ -12,8 +12,6 @@ func Migration() {
 		AutoMigrate(
 			&model.User{},
 			&model.Message{},
-			&model.Group{},
-			&model.Contact{},
 		)
 	if err != nil {
 		fmt.Print("init table fail")
