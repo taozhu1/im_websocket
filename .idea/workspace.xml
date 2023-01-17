@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae5ba55b-7a8f-48e8-a981-3aab435c9223" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/model/client.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/ws.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/ws.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/contact.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/group.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/migration.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/migration.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/contact.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/group.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/message.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testgorm.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/testgorm.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +62,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "go.sdk",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -133,7 +133,7 @@
       <workItem from="1673269958331" duration="232000" />
       <workItem from="1673271627718" duration="34000" />
       <workItem from="1673271669212" duration="8994000" />
-      <workItem from="1673437949841" duration="41198000" />
+      <workItem from="1673437949841" duration="30556000" />
     </task>
     <servers />
   </component>

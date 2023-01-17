@@ -1,2 +1,2 @@
-# im-websocket
+# go_ws
 golang websocket project
